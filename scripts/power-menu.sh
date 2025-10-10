@@ -14,8 +14,8 @@ LIST=(
 	'Shutdown'
 	'Reboot'
 	'Logout'
-	'Hibernate'
-	'Suspend'
+	# 'Hibernate'
+	# 'Suspend'
 )
 
 select-action() {
@@ -46,7 +46,7 @@ main() {
 	action=$(select-action) || exit 1
 
 	case $action in
-		'Lock') loginctl lock-session ;;
+		'Lock') hyprlock -q ;;
 		'Shutdown') systemctl poweroff ;;
 		'Reboot') systemctl reboot ;;
 		'Logout') loginctl terminate-session "$XDG_SESSION_ID" ;;
