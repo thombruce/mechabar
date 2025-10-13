@@ -49,7 +49,7 @@ main() {
 		'Lock') hyprlock -q ;;
 		'Shutdown') systemctl poweroff ;;
 		'Reboot') systemctl reboot ;;
-		'Logout') loginctl terminate-session "$XDG_SESSION_ID" ;;
+		'Logout') hyprctl dispatch exit ;;
 		'Hibernate') systemctl hibernate ;;
 		'Suspend') systemctl suspend ;;
 	esac
